@@ -109,8 +109,11 @@ def fix_html(fp, h):
     # site search -> static search page
     h = re.sub(r'(<form[^>]*(?:class="[^"]*search-form|class="[^"]*wp-block-search|role="search")[^>]*action=")[^"]*(")',
                lambda m: m.group(1) + rel(fp, 'search/') + '/' + m.group(2), h)
+    page = posixpath.relpath(posixpath.dirname(posixpath.relpath(fp, out).replace(os.sep, '/')) or '.', '.')
+    if not HIDDEN and os.path.basename(fp) == 'index.html':
+        own = base + ('' if page == '.' else urllib.parse.quote(page) + '/')
+        h = re.sub(r'<link rel=["\']canonical["\'][^>]*>', '<link rel="canonical" href="%s" />' % own, h, count=1)
     if HIDDEN:
-        page = posixpath.relpath(posixpath.dirname(posixpath.relpath(fp, out).replace(os.sep, '/')) or '.', '.')
         real = 'https://%s/%s' % (domain, '' if page == '.' else page + '/')
         h = re.sub(r'<link rel=["\']canonical["\'][^>]*>\s*', '', h)
         h = re.sub(r'<meta name=["\']robots["\'][^>]*>\s*', '', h)
