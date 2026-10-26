@@ -1,0 +1,2 @@
+wp-content/plugins/jetpack/_inc/blocks/swiper.js
+wp-content/plugins/jetpack/_inc/blocks/swiper.css
