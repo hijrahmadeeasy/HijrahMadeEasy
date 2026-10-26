@@ -1,6 +1,6 @@
 # Move Day: hijrahmadeeasy.org → this free site
 
-Do this before 17 Dec 2032 (hosting; check the domain date in Hostinger) (when the Hostinger plan or domain would need paying again).
+Do this before 15 Aug 2027 (when the Hostinger plan or domain would need paying again).
 About 15 minutes. Keep Hostinger auto-renewal ON until the last step is checked.
 
 ## Before you start
